@@ -1,4 +1,4 @@
-name: your actions name
+name: apu-cron
 
 on:
   schedule:
