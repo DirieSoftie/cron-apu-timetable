@@ -20,6 +20,8 @@ import { addToCalendar } from "./addToCalendar.js";
   console.log("Fetched Timetables: ", timetable);
   const formattedTimetable = timetable.map((event) => ({
     summary: event.MODID,
+    location: event.ROOM, // Add the classroom here
+    description: `Classroom: ${event.ROOM}`, // Include it in the description for clarity
     start: {
       dateTime: event.TIME_FROM_ISO,
       timeZone: "Asia/Kuala_Lumpur",
@@ -28,9 +30,7 @@ import { addToCalendar } from "./addToCalendar.js";
       dateTime: event.TIME_TO_ISO,
       timeZone: "Asia/Kuala_Lumpur",
     },
-    location: event.ROOM || "Room not specified",
-    description: `Classroom: ${event.ROOM || "N/A"}`, // Include it in the description for clarity
-  }));
+  }));  
 
   for (const event of formattedTimetable) {
     await addToCalendar(event);
