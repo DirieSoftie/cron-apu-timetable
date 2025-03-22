@@ -34,11 +34,6 @@ export async function fetchTimetable() {
 
     // Filter the courses by the user's elective choices
     const result = filterByElective(filteredByGrouping, nonElectives);
-        // Add classroom location (ROOM) to the result
-    const updatedResult = result.map((entry) => ({
-      ...entry,
-      classroomLocation: entry.ROOM?.trim() || "Location not specified",
-    }));
 
 
     return result; // ✅ Return data directly as an array

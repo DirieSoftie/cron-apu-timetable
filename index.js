@@ -28,6 +28,8 @@ import { addToCalendar } from "./addToCalendar.js";
       dateTime: event.TIME_TO_ISO,
       timeZone: "Asia/Kuala_Lumpur",
     },
+    location: event.ROOM || "Room not specified",
+    description: `Classroom: ${event.ROOM || "N/A"}`, // Include it in the description for clarity
   }));
 
   for (const event of formattedTimetable) {
